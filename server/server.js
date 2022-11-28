@@ -4,10 +4,16 @@ const app = express();
 
 app.get('/', (req, res, next) => res.send('Hello world!'));
 
-const peer = app.listen(9000);
+const http = require('http');
 
-const peerServer = ExpressPeerServer(peer, {
+const server = http.createServer(app);
+const peerServer = ExpressPeerServer(server, {
+  debug: true,
   path: '/'
 });
 
-app.use("/", peerServer);
+app.use('/stream', peerServer);
+
+const PORT = process.env.PORT || 443;
+
+server.listen(PORT);

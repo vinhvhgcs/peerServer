@@ -6,7 +6,9 @@
   "author": "Vinh Vo <voh.vinh803@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "http": "^0.0.1-security",
     "peer": "^0.6.1"
   }
 }
